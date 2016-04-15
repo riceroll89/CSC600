@@ -1,0 +1,14 @@
+#lang scheme
+(define (sum lst)
+  (if (null? lst) 0
+    (+ (car lst) (sum (cdr lst)))))
+(define (mean lst)
+  (/ (sum lst) (length lst)))
+(define (sum-squares lst)
+  (if (empty? lst)
+      0
+      (+ (* (car lst) (car lst))
+         (sum-squares (cdr lst)))))
+(define (sigma lst)
+  (sqrt (- (/ (sum-squares lst) (length lst))
+           (* (mean lst) (mean lst)))))
